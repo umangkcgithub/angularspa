@@ -1,0 +1,35 @@
+<h1 style="text-align:center"> Accessories</h1>
+<div class="container">
+    <input class="form-control me-4 ng-valid ng-dirty ng-valid-parse ng-empty ng-touched" type="search"
+        placeholder="Search" aria-label="Search" ng-model="search">
+
+    <div class="card-columns mt-5" ng-controller="testCtrl">
+        <div ng-repeat="Accessorie in Accessories|filter:search">
+
+
+            <!--Card-->
+            <div class="card" style="width: 250px ;height: 400px;">
+                <!--Card image-->
+                <img class="card-img-top img-fluid" style="max-height: 50%;min-height:50% "
+                    ng-src="{{Accessorie.image_url}}" alt="{{Accessorie.name}}">
+                <!--Card content-->
+                <div class="card-body">
+                    <!--Title-->
+                    <h4 class="card-title">{{Accessorie.name}}</h4>
+                    <!--Text-->
+                    <p class="card-text" style="margin-bottom:25%">
+                    <h5>{{Accessorie.price}}</h5>
+                    <a href="" class="btn btn-primary">Buy</a>
+
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+    <div ng-show='!(search|filter:search).length > 0'>No product available</div>
+</div>
+
+
+<div ng-include="'footer.html'">
+</div>
